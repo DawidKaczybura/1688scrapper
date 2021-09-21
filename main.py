@@ -2,6 +2,7 @@ from Links import Links
 from Settings import Settings
 from SiteRetriver import SiteRetriver
 from FilesComparer import FilesComparer
+from ListSingler import ListSingler
 
 def main():
     settings = Settings()
@@ -38,13 +39,13 @@ def processDownloadedData():
 
 def processLinks(links, settings):
     retriever = SiteRetriver()
-
+    listSingler = ListSingler()
     number = 0
     for link in links.links:
         if(link[0] != number):
+            listSingler.makeSingle(number)
             number = link[0]
-        counter = link[0]
-        retriever.retrieveData(link[1], settings, counter)
+        retriever.retrieveData(link[1], settings, number)
 
 if __name__ == "__main__":
     main()
