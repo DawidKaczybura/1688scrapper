@@ -10,7 +10,7 @@ class Links:
             csv_reader = csv.reader(csv_file, delimiter=';')
 
             for row in csv_reader:
-                self.links.append(row[0])
+                self.links.append(row)
 
 # links = Links()
 # print(links.links)

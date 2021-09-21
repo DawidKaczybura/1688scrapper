@@ -39,10 +39,12 @@ def processDownloadedData():
 def processLinks(links, settings):
     retriever = SiteRetriver()
 
-    counter = 0
+    number = 0
     for link in links.links:
-        counter += 1
-        retriever.retrieveData(link, settings, counter)
+        if(link[0] != number):
+            number = link[0]
+        counter = link[0]
+        retriever.retrieveData(link[1], settings, counter)
 
 if __name__ == "__main__":
     main()
